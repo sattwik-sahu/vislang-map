@@ -1,4 +1,6 @@
 .venv/
 .vscode/
 data/models/*.onnx
+data/models/*
 data/rosbags/*.bag
+.env
