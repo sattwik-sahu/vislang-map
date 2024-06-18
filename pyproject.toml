@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "vislang-map"
+version = "0.1.0"
+description = "Vision-language based mapping for offroad vehicles"
+authors = ["sattwik-sahu <sattwik21@iiserb.ac.in>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "<2"
+torch = {version = "1.13.0+cpu", source = "pytorch-cpu"}
+torchvision = {version = "0.14.0+cpu", source = "pytorch-cpu"}
+pyrealsense2 = "^2.55.1.6486"
+onnx = "^1.16.1"
+onnxruntime = "^1.18.0"
+opencv-python = "^4.10.0.84"
+
+
+[[tool.poetry.source]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+pytest = "^8.2.2"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
