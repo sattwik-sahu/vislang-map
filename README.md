@@ -75,4 +75,28 @@ Clone the repo first, then follow the steps below.
 
 ## Usage
 
-Documentation yet to be released.
+### Launch ROSBag
+
+ROSBags are stored in `data/rosbags` folder run them using
+
+```bash
+rosbag play <path_to_rosbag>
+```
+
+> ROSBags are not included in the repo. Download them from [RELLIS-3D ROSBags](https://github.com/unmannedlab/RELLIS-3D?tab=readme-ov-file#ros-bag-download)
+
+### Run CLIPSeg segmentation on RELLIS-3D camera feed
+
+```bash
+poetry run python vislang_map
+```
+
+### Create pointcloud from stereo image
+
+- Edit `launch/nerian_transform.launch` to publish the transform frames for the camera.
+- Edit `launch/stereo_pointcloud.launch` to tweak the tf for the cameras.
+- These scripts can be generalized to use any stereo camera topics you publish.
+
+```bash
+roslaunch launch/stereo_pointcloud.launch
+```

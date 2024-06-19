@@ -1,0 +1,13 @@
+<launch>
+    <!-- Parameters for translation (xyz) and rotation (quaternion) -->
+    <arg name="nerian_left_xyz" default="0.5 -0.2 0.3"/>
+    <arg name="nerian_left_quaternion" default="0.0 0.0 0.0"/> <!-- Default quaternion for no rotation -->
+    <arg name="nerian_right_xyz" default="0.5 -0.2 0.3"/>
+    <arg name="nerian_right_quaternion" default="0.0 0.0 0.0"/> <!-- Default quaternion for no rotation -->
+
+    <!-- Launch transform broadcaster node -->
+    <node pkg="tf" type="static_transform_publisher" name="nerian_left_tf_publisher"
+          args="$(arg nerian_left_xyz) $(arg nerian_left_quaternion) base_link nerian_left" />
+    <node pkg="tf" type="static_transform_publisher" name="nerian_right_tf_publisher"
+          args="$(arg nerian_right_xyz) $(arg nerian_right_quaternion) base_link nerian_right" />
+</launch>

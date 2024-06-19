@@ -1,0 +1,31 @@
+<!-- Create a launch file to launch stereo_image_proc with necessary remappings -->
+
+<!-- 
+
+
+
+
+ -->
+
+<launch>
+    <include file="launch/nerian_transform.launch">
+        <!-- <arg name="nerian_left_xyz" value="0.5 0.2 0.0"/>
+        <arg name="nerian_left_quarternion" value="0.0 0.0 0.0 1.0"/>
+        <arg name="nerian_right_xyz" value="0.5 -0.1 0.0"/>
+        <arg name="nerian_right_quarternion" value="0.0 0.0 0.0 1.0"/> -->
+    </include>
+
+    <arg name="left_image_topic" default="/nerian/left/image_raw"/>
+    <arg name="right_image_topic" default="/nerian/right/image_raw"/>
+    <arg name="left_camera_info_topic" default="/nerian/left/camera_info"/>
+    <arg name="right_camera_info_topic" default="/nerian/right/camera_info"/>
+    <arg name="output_pointcloud_topic" default="/camera/points"/>
+
+    <node name="stereo_image_proc" pkg="stereo_image_proc" type="stereo_image_proc">
+        <remap from="left/image_raw" to="$(arg left_image_topic)"/>
+        <remap from="right/image_raw" to="$(arg right_image_topic)"/>
+        <remap from="left/camera_info" to="$(arg left_camera_info_topic)"/>
+        <remap from="right/camera_info" to="$(arg right_camera_info_topic)"/>
+        <remap from="points2" to="$(arg output_pointcloud_topic)"/>
+    </node>
+</launch>
