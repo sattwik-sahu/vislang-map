@@ -2,7 +2,7 @@ from matplotlib.animation import FuncAnimation
 import torch
 import rospy
 import cv2
-from sensor_msgs.msg import Image as RosImage
+from sensor_msgs.msg import ROSImage as RosImage
 from sensor_msgs.msg import CameraInfo
 from std_msgs.msg import String
 from cv_bridge import CvBridge, CvBridgeError

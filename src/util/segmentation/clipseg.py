@@ -92,4 +92,4 @@ class CLIPSeg:
         preds = self._predict(image)
         reshaped_pred = self._reshape_preds(preds, original_image=image)
         probs = reshaped_pred.sigmoid()
-        return reshaped_pred.cpu().numpy()
+        return probs.cpu().numpy()

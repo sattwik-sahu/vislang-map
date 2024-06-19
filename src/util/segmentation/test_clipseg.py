@@ -8,14 +8,14 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
-thresh = 0.5
+thresh = 0.4
 
 
 prompts = [
-    "spoon",
+    "napkin",
     "plate",
     "pancake",
-    "beverage"
+    "wood"
 ]
 
 clipseg = CLIPSeg(
